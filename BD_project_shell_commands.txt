@@ -1,0 +1,16 @@
+Najważniejsze komendy wywoływane w konsoli maszyny wirtualnej:
+
+Odpalenie serwera Thriftowego dla Apache HBase: 
+			/usr/local/hbase/bin/hbase thrift
+
+Odpalenie serwera Apache Kafka: 
+			cd /usr/local/kafka/
+			bin/kafka-server-start.sh config/server.properties
+
+Stworzenie Kafkowego topicu używanego w Apache NiFi:
+			bin/kafka-topics.sh --create --replication-factor 1 --partitions 1 --topic bufferedRows --bootstrap-server localhost:9092
+
+Odpalenie Kafkowego consumera, aby przetestować, czy Kafkowy publisher w NiFi działa oraz przy okazji stworzenie grupy dla consumera
+			bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic bufferedRows --group=group1 --from-beginning
+
+	
